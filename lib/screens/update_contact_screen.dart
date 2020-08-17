@@ -29,6 +29,7 @@ class _UpdateContactScreenState extends State<UpdateContactScreen> {
   TextEditingController mobileController = TextEditingController();
   TextEditingController landlineController = TextEditingController();
   bool isFav = false;
+  String favStr;
   File _takenImage;
   String contactImage;
   Uint8List _bytesImage;
@@ -41,6 +42,9 @@ class _UpdateContactScreenState extends State<UpdateContactScreen> {
     if (imageFile == null) {
       return;
     }
+    setState(() {
+      _takenImage = imageFile;
+    });
     encodeImagefile(imageFile);
 
   }
@@ -72,7 +76,6 @@ class _UpdateContactScreenState extends State<UpdateContactScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -123,7 +126,7 @@ class _UpdateContactScreenState extends State<UpdateContactScreen> {
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Icon(Icons.camera_alt,
-                            color: Colors.black,),
+                            color: Colors.blue,),
                         ),
                       ),
                       onTap: (){

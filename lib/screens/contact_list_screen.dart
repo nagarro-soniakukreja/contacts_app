@@ -21,7 +21,6 @@ class ContactListScreen extends StatefulWidget{
 }
 
 class _ContactListScreenState extends State<ContactListScreen>{
-  final db = DBHelper();
   List contacts;
   String contactImage;
   Uint8List _bytesImage;
@@ -29,9 +28,6 @@ class _ContactListScreenState extends State<ContactListScreen>{
   @override
   void initState() {
     super.initState();
-    if (contacts == null) {
-      contacts = List<Contact>();
-    }
     getData();
   }
 
@@ -92,29 +88,30 @@ class _ContactListScreenState extends State<ContactListScreen>{
   }
 
   void getData() {
-    BlocProvider<ContactsBloc>(
-      create: (context) {
-        return ContactsBloc(
-          contactsRepository: ContactsRepository(),
-        )..add(ContactsRequested());
-      },
-    );
+    if (contacts == null) {
+      contacts = List<Contact>();
+    }
+    BlocProvider.of<ContactsBloc>(context).add(ContactsRequested());
+
   }
 
 
   void navigateToScreen(int i, [Contact contact]) {
     switch(i) {
-      case 1:
-        Navigator.push(context, MaterialPageRoute<FavoriteContactListScreen>(builder: (context) => FavoriteContactListScreen()));
-        break;
       case 2:
         Navigator.push(context, MaterialPageRoute(builder: (context) => AddNewContactScreen()));
         break;
       case 3:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateContactScreen(/*Contact.fromEntity(contact)*/contact)));
+        moveToUpdateScreen(contact);
         break;
-      default:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ContactListScreen()));
+    }
+  }
+
+  void moveToUpdateScreen(Contact contact) async{
+    var result = await Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => UpdateContactScreen(contact)));
+    if (result != null) {
+      getData();
     }
   }
 }

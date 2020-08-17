@@ -12,21 +12,6 @@ abstract class ContactsState extends Equatable{
 
 class ContactsLoadInProgress extends ContactsState{}
 
-//class FavoriteContactsLoadInProgress extends ContactsState{}
-
-//class FavoriteContactsLoadSuccess extends ContactsState{
-//  final List<Contact> contacts;
-//
-//  const FavoriteContactsLoadSuccess([this.contacts = const[]]);
-//
-//  @override
-//  List<Object> get props => [contacts];
-//
-//  @override
-//  String toString() => 'FavoriteContactsLoadSuccess { contacts: $contacts }';
-//}
-
-
 class ContactsLoadSuccess extends ContactsState{
   final List<Contact> contacts;
 
@@ -40,4 +25,3 @@ class ContactsLoadSuccess extends ContactsState{
 }
 
 class ContactsLoadFailure extends ContactsState{}
-//class FavoriteContactsLoadFailure extends ContactsState{}

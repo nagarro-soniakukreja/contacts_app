@@ -102,7 +102,7 @@ class AddNewContactScreenState extends State<AddNewContactScreen> {
                           child: Align(
                             alignment: Alignment.bottomCenter,
                             child: Icon(Icons.camera_alt,
-                              color: Colors.black,),
+                              color: Colors.blue,),
                           ),
                         ),
                         onTap: (){

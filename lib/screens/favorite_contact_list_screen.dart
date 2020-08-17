@@ -67,8 +67,7 @@ class FavoriteContactListScreenState extends State<FavoriteContactListScreen>{
                 ),
                 title: Text(this.contacts[pos].name),
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => UpdateContactScreen(this.contacts[pos])));
+                  moveToUpdateScreen(this.contacts[pos]);
                 },
               ),
             );
@@ -78,5 +77,13 @@ class FavoriteContactListScreenState extends State<FavoriteContactListScreen>{
 
   void getData() {
     BlocProvider.of<FavoriteContactsBloc>(context).add(FavoriteContactRequested());
+  }
+
+  void moveToUpdateScreen(Contact contact) async{
+    var result = await Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => UpdateContactScreen(contact)));
+    if (result != null) {
+      getData();
+    }
   }
 }
