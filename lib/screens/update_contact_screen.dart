@@ -271,12 +271,12 @@ class _UpdateContactScreenState extends State<UpdateContactScreen> {
         landline: int.parse(landlineController.text.toString()),
         favorite: isFav?1:0,
         image:contactImage)));
-    Navigator.pop(context, contact);
+    Navigator.pop(context, "Contact Updated!");
   }
 
   void deleteContact() {
     BlocProvider.of<ContactsBloc>(context).add(ContactDeleted(contact));
-    Navigator.pop(context, contact);
+    Navigator.pop(context, "Contact Deleted!");
   }
 
 }

@@ -13,6 +13,7 @@ import 'package:contactsapp/screens/update_contact_screen.dart';
 import 'package:contactsapp/util/dbhelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ContactListScreen extends StatefulWidget{
   @override
@@ -99,7 +100,7 @@ class _ContactListScreenState extends State<ContactListScreen>{
   void navigateToScreen(int i, [Contact contact]) {
     switch(i) {
       case 2:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => AddNewContactScreen()));
+        moveToAddNewScreen();
         break;
       case 3:
         moveToUpdateScreen(contact);
@@ -107,11 +108,27 @@ class _ContactListScreenState extends State<ContactListScreen>{
     }
   }
 
+  void moveToAddNewScreen() async{
+    var result = await Navigator.push(context, MaterialPageRoute(builder: (context) => AddNewContactScreen()));
+    if (result != null) {
+      showToast(result);
+    }
+  }
+
   void moveToUpdateScreen(Contact contact) async{
     var result = await Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => UpdateContactScreen(contact)));
     if (result != null) {
+      showToast(result);
       getData();
     }
+  }
+
+  void showToast(result) {
+    Fluttertoast.showToast(msg: result.toString(),toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }

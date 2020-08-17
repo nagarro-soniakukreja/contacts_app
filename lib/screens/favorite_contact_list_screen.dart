@@ -10,6 +10,7 @@ import 'package:contactsapp/model/contact_repository.dart';
 import 'package:contactsapp/screens/update_contact_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'add_new_contact_screen.dart';
 
@@ -83,6 +84,11 @@ class FavoriteContactListScreenState extends State<FavoriteContactListScreen>{
     var result = await Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => UpdateContactScreen(contact)));
     if (result != null) {
+      Fluttertoast.showToast(msg: result.toString(),toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
       getData();
     }
   }

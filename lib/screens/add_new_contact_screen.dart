@@ -190,7 +190,7 @@ class AddNewContactScreenState extends State<AddNewContactScreen> {
         landlineController.text.toString().isEmpty?0:int.parse(landlineController.text.toString()),
         isFav?1:0, contactImage);
     BlocProvider.of<ContactsBloc>(context).add(ContactAdded(contact));
-    Navigator.pop(context, contact);
+    Navigator.pop(context, "Contact Added!");
   }
 
   openImageOptions() {
