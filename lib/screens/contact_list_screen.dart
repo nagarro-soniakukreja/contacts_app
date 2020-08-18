@@ -3,14 +3,9 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:contactsapp/blocs/contacts.dart';
-import 'package:contactsapp/blocs/favorite_contact/favorite_contact_bloc.dart';
 import 'package:contactsapp/model/contact.dart';
-import 'package:contactsapp/model/contact_entity.dart';
-import 'package:contactsapp/model/contact_repository.dart';
 import 'package:contactsapp/screens/add_new_contact_screen.dart';
-import 'package:contactsapp/screens/favorite_contact_list_screen.dart';
 import 'package:contactsapp/screens/update_contact_screen.dart';
-import 'package:contactsapp/util/dbhelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';

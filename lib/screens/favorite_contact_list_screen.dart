@@ -6,13 +6,11 @@ import 'package:contactsapp/blocs/favorite_contact/favorite_contact_bloc.dart';
 import 'package:contactsapp/blocs/favorite_contact/favorite_event.dart';
 import 'package:contactsapp/blocs/favorite_contact/favorite_state.dart';
 import 'package:contactsapp/model/contact.dart';
-import 'package:contactsapp/model/contact_repository.dart';
 import 'package:contactsapp/screens/update_contact_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'add_new_contact_screen.dart';
 
 class FavoriteContactListScreen extends StatefulWidget{
   @override

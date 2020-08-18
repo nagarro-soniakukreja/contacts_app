@@ -27,18 +27,19 @@ class AddNewContactScreenState extends State<AddNewContactScreen> {
   File _takenImage;
   Uint8List _bytesImage;
   String  contactImage;
+  final _picker = ImagePicker();
 
   Future<void> _pickImage() async {
-    final imageFile = await ImagePicker.pickImage(
+    final imageFile = await _picker.getImage(
       source: ImageSource.gallery,
     );
     if (imageFile == null) {
       return;
     }
     setState(() {
-      _takenImage = imageFile;
+      _takenImage = File(imageFile.path);
     });
-    encodeImagefile(imageFile);
+    encodeImagefile(_takenImage);
 
   }
 

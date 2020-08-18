@@ -33,9 +33,10 @@ class _UpdateContactScreenState extends State<UpdateContactScreen> {
   File _takenImage;
   String contactImage;
   Uint8List _bytesImage;
+  final _picker = ImagePicker();
 
   Future<void> _pickImage() async {
-    final imageFile = await ImagePicker.pickImage(
+    final imageFile = await _picker.getImage(
       source: ImageSource.gallery,
     );
 
@@ -43,9 +44,9 @@ class _UpdateContactScreenState extends State<UpdateContactScreen> {
       return;
     }
     setState(() {
-      _takenImage = imageFile;
+      _takenImage = File(imageFile.path);
     });
-    encodeImagefile(imageFile);
+    encodeImagefile(_takenImage);
 
   }
 

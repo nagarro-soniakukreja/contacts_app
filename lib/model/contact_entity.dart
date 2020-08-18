@@ -1,11 +1,11 @@
 
 class ContactEntity{
-  int _id;
-  String _name;
-  int _mobile;
-  int _landLine;
-  int _favorite;
-  String _image;
+  var _id;
+  final _name;
+  final _mobile;
+  final _landLine;
+  final _favorite;
+  final _image;
 
   ContactEntity(this._name, this._mobile, this._landLine, this._favorite, this._image);
   ContactEntity.withId(this._id, this._name, this._mobile, this._landLine, this._favorite, this._image);
@@ -17,7 +17,7 @@ class ContactEntity{
   int get favorite => _favorite;
   String get image => _image;
 
-
+/*
   set mobile(int value) {
     _mobile = value;
   }
@@ -40,7 +40,7 @@ class ContactEntity{
 
   set image(String value) {
     _image = value;
-  }
+  }*/
 
   Map<String, dynamic> getMap() {
     return {
@@ -54,13 +54,13 @@ class ContactEntity{
     };
   }
 
-  ContactEntity.fromObject(dynamic obj){
+/*  ContactEntity.fromObject(dynamic obj){
     this._id = obj["id"];
     this._name = obj["name"];
     this._mobile = obj["mobile"];
     this._landLine = obj["landline"];
     this._favorite = obj["favorite"];
     this._image = obj["image"];
-  }
+  }*/
 
 }

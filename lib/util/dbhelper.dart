@@ -50,12 +50,6 @@ class DBHelper {
     );
   }
 
-//  void _onUpgradeDb(Database db, int oldVersion, int newVersion) {
-//    if (oldVersion < newVersion){
-//      db.execute("ALTER TABLE $tblContacts ADD COLUMN $colImage TEXT;");
-//    }
-//  }
-
   Future<int> insertContact(ContactEntity contact) async {
     Database db = await this.db;
     var result = await db.insert(tblContacts, contact.getMap());

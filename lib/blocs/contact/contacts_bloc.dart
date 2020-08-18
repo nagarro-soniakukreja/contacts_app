@@ -1,5 +1,4 @@
 import 'package:contactsapp/model/contact.dart';
-import 'package:contactsapp/model/contact_entity.dart';
 import 'package:contactsapp/model/contact_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
